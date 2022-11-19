@@ -1,15 +1,8 @@
 import './Content.css';
-import { ContentGrid } from "./ContentGrid";
+import { ContentDetails } from './ContentDetails';
 
 export const Content = () => {
   return (
-    <div>
-      <header className='contentHeader'>
-        <h1>Content</h1>
-      </header>
-      <main>
-        <ContentGrid />
-      </main>
-    </div>
+    <div>content</div>
   );
 };

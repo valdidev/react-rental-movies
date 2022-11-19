@@ -1,15 +1,29 @@
-import './ContentGrid.css';
+import "./ContentGrid.css";
 import { ContentCard } from "./ContentCard";
 
-import movies from "./movies.json";
+// import movies from "./movies.json";
+import { useEffect, useState } from "react";
+import { httpGet } from "./httpClient";
 
 export const ContentGrid = () => {
-  console.log(movies);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    httpGet("/discover/movie").then((data) => {
+      setMovies(data.results);
+    });
+  }, []);
+
   return (
-    <ul className='contentGrid'>
-      {movies.map((movie) => (
-        <ContentCard key={movie.id} movie={movie} />
-      ))}
-    </ul>
+    <>
+      <header className="contentHeader">
+        <h1>Content</h1>
+      </header>
+      <ul className="contentGrid">
+        {movies.map((movie) => (
+          <ContentCard key={movie.id} movie={movie} />
+        ))}
+      </ul>
+    </>
   );
 };
