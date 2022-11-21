@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Content } from './Content';
 import { ContentDetails } from './ContentDetails';
-import { ContentGrid } from './ContentGrid';
 import { Search } from './Search';
 
 export const App = () => {
@@ -12,7 +12,7 @@ export const App = () => {
     </header>
       <main>
         <Routes>
-            <Route path='/content' element={ <ContentGrid /> } />
+            <Route path='/content' element={ <Content /> } />
             <Route path='/content/:contentId' element={ <ContentDetails /> } />
         </Routes> 
       </main>
