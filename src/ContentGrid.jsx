@@ -6,6 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import { httpGet } from "./httpClient";
 import { Spinner } from "./Spinner";
+import { Empty } from "./Empty";
 
 
 export const ContentGrid = ({ search }) => {
@@ -26,7 +27,7 @@ export const ContentGrid = ({ search }) => {
     });
   }, [search, page]);
 
-  // if (isLoading) return <Spinner />;
+  if (!isLoading && movies.length === 0) return <Empty />;
 
   return (
     <>
